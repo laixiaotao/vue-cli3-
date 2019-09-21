@@ -51,6 +51,10 @@ export default options => new Promise((resolve, reject) => {
                 console.log('登陆成功')
             } else if (data.resCode == 1) {
                 console.log(data.desc)
+            } else if (data.resCode == 3) {
+                console.log('token无效或已过期')
+                localStorage.removeItem('token')
+                router.push('/login')
             }
 
             return data
